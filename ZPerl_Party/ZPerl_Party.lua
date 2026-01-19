@@ -137,10 +137,11 @@ function XPerl_Party_Events_OnLoad(self)
 
 	UIParent:UnregisterEvent("GROUP_ROSTER_UPDATE") -- IMPORTANT! Stops raid framerate lagging when members join/leave/zone
 
-	if IsRetail then
+	if PartyFrame then
 		XPerl_BlizzFrameDisable(PartyFrame)
-	else
-		for i = 1, 4 do
+	end
+	for i = 1, 4 do
+		if _G["PartyMemberFrame"..i] then
 			XPerl_BlizzFrameDisable(_G["PartyMemberFrame"..i])
 		end
 	end

@@ -783,8 +783,8 @@ function XPerl_BlizzFrameDisable(self)
 		end
 	end
 
-	if IsRetail and self == PartyFrame then
-		for frame in PartyFrame.PartyMemberFramePool:EnumerateActive() do
+	if self == PartyFrame and self.PartyMemberFramePool then
+		for frame in self.PartyMemberFramePool:EnumerateActive() do
 			XPerl_BlizzFrameDisable(frame)
 		end
 	end
